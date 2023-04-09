@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <div class="container">
+    <h1>Budget Calculator</h1>
+    <div class="form">
+      <label for="income">Monthly Income:</label>
+      <input type="number" id="income" step="0.01"><br>
+      <label for="rent">Rent:</label>
+      <input type="number" id="rent" step="0.01"><br>
+      <label for="transportation">Transportation:</label>
+      <input type="number" id="transportation" step="0.01"><br>
+      <label for="food">Food:</label>
+      <input type="number" id="food" step="0.01"><br>
+      <label for="shopping">Shopping:</label>
+      <input type="number" id="shopping" step="0.01"><br>
+      <label for="entertainment">Entertainment:</label>
+      <input type="number" id="entertainment" step="0.01"><br>
+      <label for="debt">Bill Payments:</label>
+      <input type="number" id="debt" step="0.01"><br>
+      <label for="miscellaneous">Miscellaneous:</label>
+      <input type="number" id="miscellaneous" step="0.01"><br>
+      <button onclick="calculateBudget()">Calculate</button><br>
+    </div>
+  </div>
+  <h3>Results</h3>
+  <div class="results">
+    <label for="total_expenditure">Total Expenditure:</label>
+    <input type="number" id="total_expenditure" readonly><br>
+    <label for="savings">Savings:</label>
+    <input type="number" id="savings" readonly><br>
+  </div>
+  <h3>How Much Can You Spend?</h3>
+  <div class="recommended">
+    <label for="recommended_rent">Rent (25%):</label>
+    <input type="number" id="recommended_rent" readonly><br>
+    <label for="recommended_transportation">Transportation (10%):</label>
+    <input type="number" id="recommended_transportation" readonly><br>
+    <label for="recommended_food">Food (15%):</label>
+    <input type="number" id="recommended_food" readonly><br>
+    <label for="recommended_shopping">Shopping (10%):</label>
+    <input type="number" id="recommended_shopping" readonly><br>
+    <label for="recommended_entertainment">Entertainment (5%):</label>
+    <input type="number" id="recommended_entertainment" readonly><br>
+    <label for="recommended_debt">Bill payments (10%):</label>
+    <input type="number" id="recommended_debt" readonly><br>
+    <label for="recommended_miscellaneous">Miscellaneous (5%):</label>
+    <input type="number" id="recommended_miscellaneous" readonly><br>
+    <label for="recommended_savings">Savings (20%):</label>
+    <input type="number" id="recommended_savings" readonly><br>
+  </div>
+</div>
+  <script>
+  function calculateBudget() {
+    const income = parseFloat(document.getElementById('income').value);
+    const rent = parseFloat(document.getElementById('rent').value);
+    const transportation = parseFloat(document.getElementById('transportation').value);
+    const food = parseFloat(document.getElementById('food').value);
+    const shopping = parseFloat(document.getElementById('shopping').value);
+    const entertainment = parseFloat(document.getElementById('entertainment').value);
+    const debt = parseFloat(document.getElementById('debt').value);
+    const miscellaneous = parseFloat(document.getElementById('miscellaneous').value);
+
+    const totalExpenditure = rent + transportation + food + shopping + entertainment + debt + miscellaneous;
+    const savings = income - totalExpenditure;
+
+    const recommendedRent = income * 0.25;
+    const recommendedTransportation = income * 0.10;
+    const recommendedFood = income * 0.15;
+    const recommendedShopping = income * 0.10;
+    const recommendedEntertainment = income * 0.05;
+    const recommendedDebt = income * 0.10;
+    const recommendedMiscellaneous = income * 0.05;
+    const recommendedSavings = income * 0.20;
+
+    document.getElementById('total_expenditure').value = totalExpenditure.toFixed(2);
+    document.getElementById('savings').value = savings.toFixed(2);
+    document.getElementById('recommended_rent').value = recommendedRent.toFixed(2);
+    document.getElementById('recommended_transportation').value = recommendedTransportation.toFixed(2);
+    document.getElementById('recommended_food').value = recommendedFood.toFixed(2);
+    document.getElementById('recommended_shopping').value = recommendedShopping.toFixed(2);
+    document.getElementById('recommended_entertainment').value = recommendedEntertainment.toFixed(2);
+    document.getElementById('recommended_debt').value = recommendedDebt.toFixed(2);
+    document.getElementById('recommended_miscellaneous').value = recommendedMiscellaneous.toFixed(2);
+    document.getElementById('recommended_savings').value = recommendedSavings.toFixed(2);
+  }
+</script>
+
+  <title>Budget Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+  
+    .container {
+      max-width: 800px;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+  
+    h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #4a47a3;
+    }
+  
+    input, button {
+      border: none;
+      outline: none;
+      font-size: 16px;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  
+    input {
+      width: 100%;
+      background-color: #d8bfd8;
+      color: #333;
+    }
+  
+    label {
+      font-size: 18px;
+      display: block;
+      width: 100%;
+      margin-bottom: 5px;
+      margin-top: 15px;
+      color: #4a47a3;
+    }
+  
+    button {
+      background-color: #4a47a3;
+      color: white;
+      cursor: pointer;
+      margin-top: 15px;
+      margin-bottom: 30px;
+      width: 100%;
+    }
+  
+    button:hover {
+      background-color: #3f3d9c;
+    }
+  
+    h3 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      margin-top: 20px;
+      color: #4a47a3;
+    }
+  
+    .form, .results, .recommended {
+      margin-bottom: 30px;
+    }
+  </style>
+  
+
+
